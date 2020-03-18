@@ -4,8 +4,9 @@ Orphus is a nearly zero-configuration & tiny typo reporter for web pages.
 
 - 6K minified, 2K gzipped, no dependencies
 - invoked by Ctrl+Enter
-- CORS-friendly (no AJAX, using `<iframe>` + `<form>`)
 - reports arriving by e-mail (by default)
+- CORS-friendly (no AJAX, using `<iframe>` + `<form>`)
+- cross-browser - supports even Internet Explorer 6
 
 You can see it in action [here](https://laravel.ru), [here](https://proger.me) or [here](https://squizzle.me/js/sqimitive).
 
@@ -68,7 +69,7 @@ You can also override the texts, input variables, `mail()` function, etc. - see 
 
 ## License Information
 
-Sadly, the license terms are not mentioned anywhere on the original project's page. However, it was abandoned since at least 2015 (see my [forum post](http://www.orphus.ru/community/orphus/common/Ssl.html)) so there should be no issue in using it.
+Sadly, the license terms are not mentioned anywhere on the original project's page. However, it was abandoned since at least 2015 (see my [forum post](http://www.orphus.ru/community/orphus/common/Ssl.html); [archived version](https://archive.md/6Q5Tl)) so there should be no issue in using it.
 
 I have written the server-side PHP reporting script from scratch and that one is released in public domain ([CC0](https://creativecommons.org/publicdomain/zero/1.0/)). My edits on `orphus.js` are also under CC0.
 
