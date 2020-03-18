@@ -9,6 +9,8 @@ Orphus is a nearly zero-configuration & tiny typo reporter for web pages.
 
 You can see it in action [here](https://laravel.ru), [here](https://proger.me) or [here](https://squizzle.me/js/sqimitive).
 
+---
+
 ![Screenshot](https://raw.githubusercontent.com/ProgerXP/Orphus/master/screenshot.png)
 
 
