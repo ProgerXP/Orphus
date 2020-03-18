@@ -1,0 +1,59 @@
+#orphusp {
+  background: #D4D0C8;
+  z-index: 10001;
+  border: 1px solid #555;
+  padding: 1em;
+  font-family: Arial;
+  font-size: 90%;
+  color: black;
+}
+
+#orphusp img,
+#orphusp .logo {  /* now .logo */
+  float: right;
+  margin: 0 0 1em 1em;
+  border: 0;
+}
+
+#orphusp > a + div {  /* now .legend */
+  font-weight: bold;
+  padding-bottom: 0.2em;
+}
+
+#orphusp > a + div + div {  /*now .fragment */
+  padding: 0 0 1em 1em;
+}
+
+#orphusp u,
+#orphusp mark {  /* now <mark> */
+  color: red;
+}
+
+#orphusp > a + div + div + div {  /* now .hint */
+  padding: 0 0 1em 0;
+}
+
+#orphusp form {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+#orphusp [type="text"] {
+  width: 100%;
+  margin: 0.2em 0;
+}
+
+#orphusp form input + div {  /* now .buttons */
+  text-align: right;
+  font-family: Tahoma;
+}
+
+#orphusp [type="submit"] {
+  width: 9em;
+  font-weight: bold;
+}
+
+#orphusp [type="button"] {
+  width: 9em;
+}
