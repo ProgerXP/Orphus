@@ -11,7 +11,7 @@
   If sending from domain(s) different from where this script is located, do not
   add X-Frame-Options and other headers that would block the cross-origin <form>.
 
-  If ./orphus.php.log exists and is writable then reports are appended there
+  If ./orphus.log exists and is writable then reports are appended there
   in addition to using $mail().
 
   POST:
@@ -102,7 +102,7 @@ if (isset($vars['c_pre']) and isset($vars['c_sel']) and isset($vars['c_suf'])
   $text = preg_replace('/\r?\n/u', $eol, $text);  // normalize to CRLF.
 
   // Returns false for non-existing files.
-  if (is_writable($log = __FILE__.'.log')) {
+  if (is_writable($log = 'orphus.log')) {
     $logText = "$text$eol$eol".
                date('d.m.Y H:i:s')."$eol$eol".
                str_repeat('-', 75)."$eol$eol";

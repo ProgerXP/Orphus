@@ -24,16 +24,17 @@ Put the following line anywhere **inside `<body>`** (not inside `<head>`):
 
 Also write and include your own styles (you can take `original/orphus-orig.css` as a basis). Note: centering works best with `#orphusp { box-sizing: border-box; }`.
 
-If you want to configure Orphus, do this anywhere **before** that line. For example, by default reports are sent to `/orphus.php` but you can use my script without touching your backend:
+If you want to configure Orphus, do this anywhere **before** that line. For example, by default reports are sent to `/orphus.php` but you can use the PHP script on my page without touching your backend:
 
 ```
 <script>
-orphus = {
-  action: 'https://proger.me/orphus.php',
-  strings: {
-    subject: 'Typo Reported',
-  },
-}
+  // Keys for what will become orphus.opt after loading.
+  orphus = {
+    action: 'https://proger.me/orphus.php',
+    strings: {
+      subject: 'Typo Reported',
+    },
+  }
 </script>
 ```
 
@@ -50,7 +51,7 @@ orphus.show()
 
 Follow the instructions above to install the frontend, then copy `orphus.php` to your web root (or change `orphus.opt.action`).
 
-After that either edit the script (not recommended) or create a new script `orphus-local.php` alongside the first and put your specific configuration there. At minimum, you need to set the recipient's e-mail because for spam reasons `orphus.opt.email` is ignored by default.
+After that either edit the PHP script (not recommended) or create a new script `orphus-local.php` alongside the first and put your specific configuration there. At minimum, you need to set the recipient's e-mail address because for spam reasons `?email` (`orphus.opt.email`) is ignored by default.
 
 ```
 <?php
@@ -86,5 +87,5 @@ These are in addition to differences described [here](original/README.md):
 - moved `email` deobfuscation from `run()` to `self.deobfuscate()`
 - removed setting `zIndex` on `#orphusp`
 - removed the code for temporary hiding `<select>`s for IE <= 6
-- removed hardcoded margins (min X/Y 10px)
-- added the check for no ranges in `getSelection()` avoiding subsequent exception in `getRangeAt(0)` (can happen if user didn't click inside `<body>` since loading)
+- removed hardcoded margins (was min. X/Y 10px)
+- added the check for no ranges in `getSelection()` to avoid subsequent exception in `getRangeAt(0)` (can happen if user didn't click inside `<body>` since loading)

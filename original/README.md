@@ -19,11 +19,11 @@ These are the original files and their light adaptations:
 - removed `_18()` used to update `window.status` ([no longer works](https://developer.mozilla.org/en-US/docs/Web/API/Window/status))
 - removed unused `_10.confirm()` (probably was meant for calling by changing `showMethod` from `"css"` to `"confirm"`)
 - removed hardcoded CSS styles (`style="..."`, except for `width`, `left`, `top`), instead added a single `id="orphusp"` to the main `<div>`
-- added CSS classes: `logo`, `legend`, `fragment`, `hint`
+- added CSS classes: `logo`, `legend`, `fragment`, `hint`, `buttons`
 - replaced `<u>` with a more semantic `<mark>`
 - made tags HTML5 rather than XHTML
 - moved wrapping `try`/`catch` from `getSelection()` to its call in `show()`
-- removed checks for `!email` and `Netscape < 5`
+- removed checks for `!email` (blankness) and `Netscape < 5`
 - removed `with { ... }`
 - added `"use strict";`
 - minor stylistic changes
