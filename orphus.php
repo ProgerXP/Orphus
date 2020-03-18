@@ -94,12 +94,13 @@ if (isset($vars['c_pre']) and isset($vars['c_sel']) and isset($vars['c_suf'])
     }
   }
 
-  $eol = "\r\n";
+  // \r\n must be more correct but some mail servers treat it as a double break.
+  $eol = "\n";
   // wordwrap() is not Unicode-safe but we don't have a better one.
   $vars['context'] = wordwrap(preg_replace('/^\s+|\s+$|(\s){2,}/u', '\1', $vars['context']), 75, "$eol  ");
 
   $text = call_user_func($strings['template'], $vars);
-  $text = preg_replace('/\r?\n/u', $eol, $text);  // normalize to CRLF.
+  $text = preg_replace('/\r?\n/u', $eol, $text);  // normalize to LF.
 
   // Returns false for non-existing files.
   if (is_writable($log = 'orphus.log')) {
