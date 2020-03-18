@@ -24,9 +24,9 @@ Put the following line anywhere **inside `<body>`** (not inside `<head>`):
 <script src="https://raw.githubusercontent.com/ProgerXP/Orphus/master/orphus-min.js"></script>
 ```
 
-Also write and include your own styles (you can take `original/orphus-orig.css` as a basis). Note: centering works best with `#orphusp { box-sizing: border-box; }`.
+It's best put early in `<body>` so that Ctrl+Enter starts working without waiting for a long page to finish loading. Also, adding `async` or `defer` to that `<script>` improves performance (but `defer` has the same effect as putting `<script>` right before `</body>`).
 
-If you want to configure Orphus, do this anywhere **before** that line. For example, by default reports are sent to `/orphus.php` but you can use the PHP script on my page without touching your backend:
+If you want to configure Orphus, do this anywhere **before** that line. For example, by default reports are sent to `/orphus.php` but you can use the PHP script on my page without touching your backend (make sure to configure at least `email`):
 
 ```
 <script>
@@ -48,6 +48,8 @@ Thereafter you can call its methods via the global `orphus` object which can be 
 orphus.opt.strings.send = 'Отправить'
 orphus.show()
 ```
+
+Finally, write and include your own styles (you can take `original/orphus-orig.css` as a basis). Note: centering works best with `#orphusp { box-sizing: border-box; }`.
 
 ### Self-Hosted (PHP 5.4+)
 
