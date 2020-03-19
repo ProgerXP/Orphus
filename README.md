@@ -1,6 +1,6 @@
 # Orphus.js - A Tiny Typo Reporter
 
-Orphus is a nearly zero-configuration & tiny typo reporter for web pages.
+Orphus is a tiny zero-configuration typo reporter for web pages.
 
 - 6K minified, 2K gzipped, no dependencies
 - invoked by Ctrl+Enter
@@ -94,3 +94,11 @@ These are in addition to differences described [here](original/README.md):
 - removed the code for temporary hiding `<select>`s for IE <= 6
 - removed hardcoded margins (was min. X/Y 10px)
 - added the check for no ranges in `getSelection()` to avoid subsequent exception in `getRangeAt(0)` (can happen if user didn't click inside `<body>` since loading)
+
+
+## To Do
+
+- add background shader while `#orphusp` is visible
+  - click on it works as `Cancel`
+- replace using `onkeypress`/`onkeyup` with `addEventListener()`
+- migrate CSS classes to [BEM](http://bem.info) (will require changing existing stylesheets)

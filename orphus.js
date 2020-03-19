@@ -32,8 +32,8 @@
       send:         'Submit',
       cancel:       'Cancel',
       entercmnt:    'Your comment (optional):',
-      submitex:     'Unable to send the report:',
-    },
+      submitex:     'Unable to send the report:'
+    }
   }
 
   var assign = function (dest, src) {
@@ -103,7 +103,7 @@
       c_tag1:   self.opt.c_tag1,
       c_tag2:   self.opt.c_tag2,
       charset:  document.charset || document.characterSet || '',
-      comment:  comment,
+      comment:  comment
     }
 
     for (var name in query) {
@@ -152,7 +152,7 @@
       width:        width,
       height:       height,
       scrollLeft:   scrollLeft,
-      scrollTop:    scrollTop,
+      scrollTop:    scrollTop
     }
   }
 
@@ -296,7 +296,7 @@
         pre:  pre,
         text: text,
         suf:  suf,
-        pos:  pos,
+        pos:  pos
       }
     }
   }
