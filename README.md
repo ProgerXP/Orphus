@@ -22,12 +22,12 @@ You can see it in action [here](https://laravel.ru), [here](https://proger.me) o
 Put the following line anywhere **inside `<body>`** (not inside `<head>`):
 
 ```
-<script src="https://raw.githubusercontent.com/ProgerXP/Orphus/master/orphus-min.js"></script>
+<script src="https://proger.me/orphus.js"></script>
 ```
 
 It's best put early in `<body>` so that Ctrl+Enter starts working without waiting for a long page to finish loading. Also, adding `async` or `defer` to that `<script>` improves performance (but `defer` has the same effect as putting `<script>` right before `</body>`).
 
-If you want to configure Orphus, do this anywhere **before** that line. For example, by default reports are sent to `/orphus.php` but you can use the PHP script on my page without touching your backend (make sure to configure at least `email`):
+If you want to configure Orphus, do this anywhere **before** that line. For example, by default reports are sent to `/orphus.php` but you can use the PHP script on my page without touching your backend:
 
 ```
 <script>
@@ -37,6 +37,8 @@ If you want to configure Orphus, do this anywhere **before** that line. For exam
     strings: {
       subject: 'Typo Reported',
     },
+    // If using proger.me/orphus.php, tell me where to forward your reports:
+    //email: 'you@example.com',
   }
 </script>
 ```
