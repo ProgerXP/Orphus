@@ -26,7 +26,7 @@
   - email     = web@master        - required but ignored by default
   - ref       = https://url       - required
   - subject   = Mail subject
-  - to        = Webmaster
+  - to        = Webmaster         - ignored by default
   - version   = 5.01              - 6.0 for this adaptation
 */
 
@@ -42,7 +42,7 @@ function errorFinish($e = null) {
 set_exception_handler('errorFinish');
 
 header('Content-Type: text/html; charset=utf-8');
-echo '<!-- ';   // hide emitted PHP errors if display_errors is on.
+echo '<!-- ';   // hide emitted PHP errors if display_errors is on
 
 $strings = [
   'error' => 'Unable to send the report.',
@@ -65,6 +65,8 @@ TEXT;
 ];
 
 $vars = $_REQUEST;
+// May be used to inject custom recipients. May be specified in orphus-local.php.
+unset($vars['to']);
 // Force the email to prevent spammers from using us as a relay host.
 // Must be specified in orphus-local.php.
 unset($vars['email']);
@@ -78,10 +80,15 @@ $_SERVER += ['HTTP_USER_AGENT' => ''];
 // The reporting function. Falsy result is considered a failure.
 $mail = 'mail';
 
+// \r\n must be more correct but some mail servers treat it as a double break.
+// If you experience problems with mail delivery, try changing this to "\r\n".
+$eol = "\n";
+
 // Your specific configuration, for example:
 //header('Access-Control-Allow-Origin: *');
 //$vars['email'] = 'webmaster@proger.me';
 //$mail = function (...) { push_to_queue(); };
+//$eol = "\r\n";
 is_file($config = __DIR__.'/orphus-local.php') and require($config);
 
 if (isset($vars['c_pre']) and isset($vars['c_sel']) and isset($vars['c_suf'])
@@ -94,13 +101,11 @@ if (isset($vars['c_pre']) and isset($vars['c_sel']) and isset($vars['c_suf'])
     }
   }
 
-  // \r\n must be more correct but some mail servers treat it as a double break.
-  $eol = "\n";
   // wordwrap() is not Unicode-safe but we don't have a better one.
   $vars['context'] = wordwrap(preg_replace('/^\s+|\s+$|(\s){2,}/u', '\1', $vars['context']), 75, "$eol  ");
 
   $text = call_user_func($strings['template'], $vars);
-  $text = preg_replace('/\r?\n/u', $eol, $text);  // normalize to LF.
+  $text = preg_replace('/\r?\n/u', $eol, $text);  // normalize
 
   // Returns false for non-existing files.
   if (is_writable($log = 'orphus.log')) {
