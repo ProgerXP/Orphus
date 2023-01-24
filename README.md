@@ -8,7 +8,7 @@ Orphus is a tiny zero-configuration typo reporter for web pages.
 - CORS-friendly (no AJAX, using `<iframe>` + `<form>`)
 - cross-browser - supports even Internet Explorer 6
 
-You can see it in action [here](https://laravel.ru), [here](https://proger.me) or [here](https://squizzle.me/js/sqimitive).
+You can see it in action [here](https://laravel.ru), [here](https://proger.me) or [here](https://squizzle.me/js/sqimitive). Read about patching for WordPress [here](https://cs-cs.net/sistema-orphus#_orphus_progerxp____202301) (in Russian).
 
 ---
 
